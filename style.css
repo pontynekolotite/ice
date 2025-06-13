@@ -83,8 +83,7 @@ body {
 .game-ui {
     width: 100%;
     position: absolute;
-    /* 2 строки поля (2*20) + запас сверху (12px) */
-    top: 52px;
+    top: 112px;
     left: 0; right: 0;
     display: flex; justify-content: space-between;
     align-items: center; 
@@ -92,17 +91,24 @@ body {
     height: 34px;
     z-index: 50;
 }
-.score-display, .pause-btn {
-    min-height: 32px;
-    height: 32px;
-    padding-top: 2px;
-    padding-bottom: 2px;
-    font-size: 0.92rem;
-}
 .pause-btn {
-    min-width: 85px;
+    background: transparent;
+    border: none;
+    color: #aaf3ff;
+    min-width: 65px;
     height: 32px;
     font-size: 0.92rem;
+    font-family: 'Press Start 2P', monospace;
+    letter-spacing: 2px;
+    text-transform: lowercase;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: none;
+    cursor: pointer;
+    transition: color 0.13s;
+    padding: 0;
+}
+.pause-btn:hover {
+    color: #fff;
 }
 .effect-display {
     font-family: 'Press Start 2P', monospace;
