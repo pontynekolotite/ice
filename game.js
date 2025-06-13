@@ -4,7 +4,7 @@ class ICENAKE {
         this.ctx = this.canvas.getContext('2d');
         this.gridSize = 20;
         this.cols = 20;
-        this.rows = 37; // На 2 больше
+        this.rows = 37; // На 2 больше!
         this.setResponsiveField();
         this.initVars();
         this.initUI();
@@ -14,18 +14,13 @@ class ICENAKE {
     }
 
     setResponsiveField() {
-        let safeTop = 48, safeBottom = 24;
-        try {
-            const root = getComputedStyle(document.documentElement);
-            safeTop = parseInt(root.getPropertyValue('--safe-top')) || 48;
-            safeBottom = parseInt(root.getPropertyValue('--safe-bottom')) || 24;
-        } catch { }
+        // Не используем safe-area, просто максимально большой canvas
         const w = window.innerWidth;
-        const h = window.innerHeight - safeTop - safeBottom;
+        const h = window.innerHeight - 30; // 30px для нижней панели свайпа
         let maxW = Math.min(420, w - 16);
         let maxH = Math.floor(maxW * (this.rows / this.cols));
-        if (maxH > h - 50) {
-            maxH = h - 50;
+        if (maxH > h - 160) { // запас снизу и сверху!
+            maxH = h - 160;
             maxW = Math.floor(maxH * (this.cols / this.rows));
         }
         this.canvas.width = this.cols * this.gridSize;
@@ -333,7 +328,7 @@ class ICENAKE {
             effectTxt = this.activeEffect;
         }
         document.getElementById("effectUI").textContent = effectTxt;
-        // ТАЙМЕР УБРАН, строка timerUI не используется
+        // timerUI не используется
     }
 
     showPopup(text, color = "#fff", ms = 1100) {
@@ -354,12 +349,9 @@ class ICENAKE {
     }
 
     draw() {
-        // Чёрный фон и ровная рамка со всех сторон
+        // Чёрный фон и ровная рамка со всех сторон (border CSS)
         this.ctx.fillStyle = "#000";
         this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
-
-        // ВСЕ СТОРОНЫ ОДИНАКОВО: border canvas, не рисуем доп. полосы сверху/снизу!
-        // Только само игровое поле и border от CSS
 
         // Еда
         this.foods.forEach(f => {
