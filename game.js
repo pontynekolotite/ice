@@ -237,11 +237,12 @@ class ICENAKE {
     }
 
     playSound(id) {
-        try {
-            const audio = document.getElementById(id);
-            if (audio) { audio.currentTime = 0; audio.play(); }
-        } catch { }
-    }
+    if (id === "eatSound") return; // Просто игнорируем этот звук
+    try {
+        const audio = document.getElementById(id);
+        if (audio) { audio.currentTime = 0; audio.play(); }
+    } catch { }
+}
 
     addFood(count = 1) {
         while (count--) {
