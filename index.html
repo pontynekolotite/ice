@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>ICENAKE</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- СТАРТОВОЕ МЕНЮ -->
+    <div id="startMenu" class="screen">
+        <div class="logo">
+            <h1 class="icetitle">ICENAKE</h1>
+            <div class="classic">CLASSIC GAME</div>
+        </div>
+        <div class="menu-buttons">
+            <button id="startBtn" class="menu-btn">START</button>
+            <button id="musicBtn" class="menu-btn">MUSIC: OFF</button>
+            <button id="highScoreBtn" class="menu-btn">GOATSBOARD</button>
+        </div>
+    </div>
+    <!-- GOATSBOARD -->
+    <div id="highScoreScreen" class="screen hidden">
+        <h2>🐐 GOATSBOARD 🐐</h2>
+        <div id="leaderboard" class="score-list"></div>
+        <button id="backFromScores" class="menu-btn">BACK</button>
+    </div>
+    <!-- ИГРА -->
+    <div id="gameScreen" class="screen hidden">
+        <div class="game-ui">
+            <div class="score-display" id="scoreUI"></div>
+            <div class="effect-display" id="effectUI"></div>
+            <button id="pauseBtn" class="pause-btn">PAUSE</button>
+        </div>
+        <div class="game-canvas-wrap">
+            <canvas id="gameCanvas"></canvas>
+        </div>
+        <!-- УБРАЛ ТАЙМЕР ЭФФЕКТА -->
+    </div>
+    <!-- ПАУЗА -->
+    <div id="pauseMenu" class="screen hidden overlay">
+        <div class="pause-content">
+            <h2>⏸️ PAUSED</h2>
+            <button id="resumeBtn" class="menu-btn">RESUME</button>
+            <button id="restartBtn" class="menu-btn">RESTART</button>
+            <button id="backToMenuBtn" class="menu-btn">MENU</button>
+        </div>
+    </div>
+    <!-- GAME OVER -->
+    <div id="gameOverScreen" class="screen hidden overlay">
+        <div class="gameover-content">
+            <h2 class="glitch">💀 GAME OVER 💀</h2>
+            <div class="final-score">FINAL SCORE: <span id="finalScore">0</span></div>
+            <button id="playAgainBtn" class="menu-btn">TRY AGAIN</button>
+            <button id="mainMenuBtn" class="menu-btn">BACK TO HOOD</button>
+        </div>
+    </div>
+    <audio id="eatSound" src="eat.mp3" preload="auto"></audio>
+    <audio id="musicLoop" src="music.mp3" preload="auto" loop></audio>
+    <script src="game.js"></script>
+</body>
+</html>
