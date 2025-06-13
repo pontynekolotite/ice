@@ -83,7 +83,7 @@ body {
 .game-ui {
     width: 100%;
     position: absolute;
-    top: 112px;
+    bottom: 38px; /* Чуть выше “home-индикатора” (можно варьировать) */
     left: 0; right: 0;
     display: flex; justify-content: space-between;
     align-items: center; 
